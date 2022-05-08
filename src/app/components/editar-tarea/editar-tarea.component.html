@@ -1,0 +1,23 @@
+<div *ngIf="load==true" style="animation: infinite-rotate 2s linear infinite;">
+    <i class="bi bi-arrow-clockwise" style="font-size:4em"></i>
+  </div>
+<form *ngIf="load==false" [formGroup]="formulariotarea" (ngSubmit)="enviar_Datos()" style="padding: 24px;">
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Título</label>
+      <input type="text" class="form-control" style="text-align:center" id="titulo" value="{{tarea.Titulo}}"  formControlName="Titulo">
+    </div>
+    <div class="mb-3">
+      <label for="descrip" class="form-label">Descripción</label>
+      <input type="text" class="form-control" style="text-align:center" formControlName="Descripcion" value="{{tarea.Descripcion}}" id="descrip">
+    </div>
+    <div class="mb-3">
+      <label for="estado" class="form-label">Estado</label>
+      <select class="form-control" style="text-align:center" formControlName="Estado" id="estado">
+        <option value="Pendiente">Pendiente</option>
+        <option value="Finalizada">Finalizada</option>
+        <option value="En proceso">En proceso</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-right: 15px;">Modificar</button>
+    <button class="btn btn-danger">Cancelar</button>
+</form>
